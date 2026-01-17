@@ -1,4 +1,4 @@
-package com.davidgable;
+package com.davidgable.jstruct;
 
 public abstract class BaseModel extends Serializable {
     @Override

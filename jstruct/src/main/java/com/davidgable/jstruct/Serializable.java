@@ -1,4 +1,4 @@
-package com.davidgable;
+package com.davidgable.jstruct;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -26,7 +26,7 @@ public abstract class Serializable {
         Path path = filename.toAbsolutePath();
 
         // warn the user if the path might be invalid
-        if (!path.endsWith(".json")) {
+        if (!path.toString().endsWith(".json")) {
             System.out.println("The filename specified (" + path + ") does not end with .json");
         }
         if (!fileMustExist) {
