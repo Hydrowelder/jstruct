@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"com.davidgable.jstruct","l":"BaseModel"},{"p":"com.davidgable.jstruct.example","l":"ExampleMain"},{"p":"com.davidgable.jstruct.example","l":"ExampleUser"}];updateSearchResults();
