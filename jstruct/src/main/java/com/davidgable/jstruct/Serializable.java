@@ -1,13 +1,31 @@
 package com.davidgable.jstruct;
 
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+/**
+ * Serializer/Deserialize objects.
+ *
+ * <p>
+ * {@code Serializable} provides a method to serialize and deserialize an object
+ * which inherits it. This allows for easier communication between APIs by using
+ * JStruct as an inbetween.
+ * </p>
+ *
+ * @author David Gable
+ * @version 1.0
+ */
 public abstract class Serializable {
+    private static final Logger logger = LoggerFactory.getLogger(Serializable.class);
 
     /**
      * Resolves the filepath to a file
@@ -27,7 +45,7 @@ public abstract class Serializable {
 
         // warn the user if the path might be invalid
         if (!path.toString().endsWith(".json")) {
-            System.out.println("The filename specified (" + path + ") does not end with .json");
+            logger.warn("The filename specified (" + path + ") does not end with .json");
         }
         if (!fileMustExist) {
             return path;
@@ -67,7 +85,7 @@ public abstract class Serializable {
      * @throws JsonProcessingException if unable to write the object to a JSON
      *                                 string
      */
-    public String jsonString(int indent) throws JsonProcessingException {
+    public String modelDumpJson(int indent) throws JsonProcessingException {
         ObjectMapper objectMapper = this.getObjectMapper();
         if (indent <= 0) {
             return objectMapper.writeValueAsString(this);
@@ -86,8 +104,8 @@ public abstract class Serializable {
      *                 indent with (adds newlines and spaces if greater than to 0)
      * @return a {@code boolean} specifying if serialization was successful
      */
-    public boolean toJsonFile(String filename, int indent) {
-        return this.toJsonFile(Paths.get(filename), indent);
+    public boolean modelDump(String filename, int indent) {
+        return this.modelDump(Paths.get(filename), indent);
     }
 
     /**
@@ -98,29 +116,29 @@ public abstract class Serializable {
      *                 indent with (adds newlines and spaces if greater than to 0)
      * @return a {@code boolean} specifying if serialization was successful
      */
-    public boolean toJsonFile(Path filename, int indent) {
+    public boolean modelDump(Path filename, int indent) {
         Path path;
         try {
             path = this.resolveFilepath(filename, false);
         } catch (IOException e) {
             return false;
         }
-        System.out.println("Serializing to: " + path);
+        logger.debug("Serializing to: {}", path);
 
         String jsonString;
         try {
-            jsonString = this.jsonString(indent);
+            jsonString = this.modelDumpJson(indent);
         } catch (Exception e) {
-            System.out.println(("Unable to serialize to JSON with error " + e));
+            logger.error("Unable to serialize to JSON with error {}", e);
             return false;
         }
 
         // write the string to a file
         try {
             Files.writeString(path, jsonString);
-            System.out.println("Serialized to JSON at " + path);
+            logger.debug("Serialized to JSON at {}", path);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to write JSON file: {}", path, e);
             return false;
         }
 
@@ -128,7 +146,8 @@ public abstract class Serializable {
     }
 
     /**
-     * Deserializes a JSON file into an object of the specified type
+     * Deserializes a JSON file into an object of the specified type from a Path
+     * string.
      *
      * @param <T>      the type to deserialize into
      * @param filename a {@code String} object representing the path to the JSON
@@ -139,12 +158,12 @@ public abstract class Serializable {
      * @throws IOException if the file does not exist, cannot be read, or
      *                     deserialization fails
      */
-    public <T> T fromJsonFile(String filename, Class<T> type) throws IOException {
-        return this.fromJsonFile(Paths.get(filename), type);
+    public <T> T modelValidate(String filename, Class<T> type) throws IOException {
+        return this.modelValidate(Paths.get(filename), type);
     }
 
     /**
-     * Deserializes a JSON file into an object of the specified type
+     * Deserializes a JSON file into an object of the specified type from a Path.
      *
      * @param <T>      the type to deserialize into
      * @param filename a {@code Path} object representing the path to the JSON file
@@ -154,13 +173,28 @@ public abstract class Serializable {
      * @throws IOException if the file does not exist, cannot be read, or
      *                     deserialization fails
      */
-    public <T> T fromJsonFile(Path filename, Class<T> type) throws IOException {
+    public <T> T modelValidate(Path filename, Class<T> type) throws IOException {
         Path path = this.resolveFilepath(filename, true);
 
         String jsonString = Files.readString(path);
+        return this.modelValidateJson(jsonString, type);
+    }
+
+    /**
+     * Deserializes a JSON file into an object of the specified type from a string.
+     *
+     * @param <T>        the type to deserialize into
+     * @param jsonString a {@code String} object representing the content of a JSON
+     *                   file
+     * @param type       a {@code Class<T>} object representing the type to
+     *                   deserialize into
+     * @return an object of type {@code T} deserialized from the JSON file
+     * @throws IOException if the file does not exist, cannot be read, or
+     *                     deserialization fails
+     */
+    public <T> T modelValidateJson(String jsonString, Class<T> type) throws IOException {
 
         ObjectMapper objectMapper = this.getObjectMapper();
         return objectMapper.readValue(jsonString, type);
     }
-
 }

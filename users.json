@@ -1,0 +1,18 @@
+{
+    "users" : [ {
+        "name" : "John",
+        "birthyear" : 1873,
+        "favoriteFood" : "Stew?",
+        "generatedTime" : 1768697556.747337300
+    }, {
+        "name" : "Abigail",
+        "birthyear" : 1877,
+        "favoriteFood" : "Brains",
+        "generatedTime" : 1768697556.747337300
+    }, {
+        "name" : "Jack",
+        "birthyear" : 1895,
+        "favoriteFood" : "Also Brains? Fish?",
+        "generatedTime" : 1768697556.747337300
+    } ]
+}
