@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import com.davidgable.jstruct.BaseModel;
 
+import jakarta.validation.constraints.Pattern;
+
 /**
  * Represents a user entity with personal information.
  *
@@ -36,8 +38,9 @@ public class ExampleUser extends BaseModel {
     private int birthyear;
 
     /**
-     * The user's favorite food.
+     * The user's favorite food. Cannot be equal to "Revenge".
      */
+    @Pattern(regexp = "^(?!Revenge$).*$", message = "favoriteFood must not be 'Revenge'")
     private String favoriteFood;
 
     /**
@@ -85,20 +88,36 @@ public class ExampleUser extends BaseModel {
         this.birthyear = birthyear;
         this.favoriteFood = favoriteFood;
         this.generatedTime = Instant.now();
+
+        // include this for model validation!
+        this.modelValidate();
     }
 
     public static void main(String[] args) throws Exception {
-        // make an example entry
-        ExampleUser john = new ExampleUser("Arthur", 1863, "Bear");
+        String filename = "user.json";
 
         // serialize a user
-        String filename = "user.json";
-        john.modelDump(filename, 4);
+        {
+            ExampleUser user = new ExampleUser("Arthur", 1863, "Bear");
+            user.modelDumpWrite(filename, 4); // write to JSON
+
+            logger.info("Successfully serialized to JSON: {}", user.modelDumpJson(4));
+        }
 
         // deserialize the example entry from the saved file
-        ExampleUser user = new ExampleUser();
-        ExampleUser newUser = user.modelValidate(filename, ExampleUser.class);
+        {
+            ExampleUser user = new ExampleUser();
+            ExampleUser newUser = user.modelValidate(filename, ExampleUser.class); // load from JSON
 
-        logger.info(newUser.modelDumpJson(4));
+            logger.info("Successfully deserialized from JSON: {}", newUser.modelDumpJson(4));
+        }
+
+        // this one fails validation since Revenge is not a valid favoriteFood
+        try {
+            ExampleUser badUser = new ExampleUser("Micah", 1860, "Revenge");
+            logger.info("Somehow {} returned.", badUser.getName());
+        } catch (IllegalStateException e) {
+            logger.info("Micah has been stopped in his tracks (this is a good thing!) {}", e);
+        }
     }
 }

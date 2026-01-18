@@ -45,7 +45,7 @@ public class ExampleMain extends BaseModel {
 
         // serialize to json
         String filename = "users.json";
-        users.modelDump(filename, 4);
+        users.modelDumpWrite(filename, 4);
 
         // deserialize the example entry from the saved file
         ExampleMain main = new ExampleMain();
