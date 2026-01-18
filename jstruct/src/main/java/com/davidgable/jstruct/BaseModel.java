@@ -19,19 +19,19 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 
 /**
- * Base class for all JStruct data models.
+ * Base class for all {@code jstruct} data models.
  *
  * <p>
  * {@code BaseModel} provides common functionality for structured data objects,
  * including standardized string representation and JSON serialization support.
  * User-defined models should extend this class to inherit default behavior and
- * integration with the JStruct serialization pipeline.
+ * integration with the {@code jstruct} serialization pipeline.
  * </p>
  *
  * <p>
- * It comes with serialization/deserialization (using Jackson) and data
- * validation (using Jakarta). When using deserializing a model,
- * BaseModel.modelValidate() is run to validate data fields to check for
+ * It comes with serialization/deserialization (using {@code Jackson}) and data
+ * validation (using {@code Jakarta}). When using deserializing a model,
+ * {@code BaseModel.modelValidate()} is run to validate data fields to check for
  * constraint violations.
  * </p>
  *
