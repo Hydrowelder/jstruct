@@ -1,0 +1,63 @@
+# Java class files and build artifacts
+*.class
+# generated files
+bin/
+gen/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.next
+pom.xml.bak
+pom.xml.versions
+pom.xml.releaseBackup
+# Maven temporary files
+release.properties
+dependency-reduced-pom.xml
+builddirectory/
+# Java 9+ module-info.class files
+**/module-info.class
+
+# Gradle
+.gradle/
+/build/
+
+# Eclipse
+.project
+.classpath
+.settings/
+# External tool builders
+.externalToolBuilders/
+# Locally stored "Eclipse launch configurations"
+*.launch
+# Eclipse Core
+.metadata/
+# JDT-specific (Eclipse Java Development Tools)
+# .classpath (some developers prefer to commit this)
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+/out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.netbeans/
+!/nbproject/private/
+!/nbproject/configs/
+!/nbproject/active-configurations.xml
+!/nbproject/jaxws-build.xml
+
+# VS Code
+.vscode/
+
+# Logs and temporary files
+*.log
+*.lock
+*.tmp
+temp/
