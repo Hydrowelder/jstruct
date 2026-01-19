@@ -12,14 +12,14 @@
 -source
 '25'
 -sourcepath
-'C:/Users/David/Documents/github/jstruct/jstruct/src/main/java'
+'C:/Users/David/Documents/github/jstruct/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2026. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'C:/Users/David/Documents/github/jstruct/jstruct/target/reports/apidocs'
+'C:/Users/David/Documents/github/jstruct/target/reports/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
@@ -41,18 +41,18 @@ C:\Users\David\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.0
 C:\Users\David\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.0\jackson-annotations-2.19.0.jar = 1768672542820
 C:\Users\David\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.0\jackson-core-2.19.0.jar = 1768672542782
 C:\Users\David\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.0\jackson-datatype-jsr310-2.19.0.jar = 1768675389606
-C:\Users\David\Documents\github\jstruct\jstruct\src\main\java = 1768682335935
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\allclasses-index.html = 1768707130242
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\allpackages-index.html = 1768707130244
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\element-list = 1768707130191
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\help-doc.html = 1768707130265
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\index-all.html = 1768707130258
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\index.html = 1768707130232
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\member-search-index.js = 1768707130249
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\module-search-index.js = 1768707130245
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\overview-summary.html = 1768707130262
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\overview-tree.html = 1768707130230
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\package-search-index.js = 1768707130246
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\search.html = 1768707130260
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\tag-search-index.js = 1768707130250
-C:\Users\David\Documents\github\jstruct\jstruct\target\reports\apidocs\type-search-index.js = 1768707130247
+C:\Users\David\Documents\github\jstruct\src\main\java = 1768682335935
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\allclasses-index.html = 1768855467320
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\allpackages-index.html = 1768855467323
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\element-list = 1768855467271
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\help-doc.html = 1768855467342
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\index-all.html = 1768855467336
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\index.html = 1768855467311
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\member-search-index.js = 1768855467327
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\module-search-index.js = 1768855467324
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\overview-summary.html = 1768855467340
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\overview-tree.html = 1768855467308
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\package-search-index.js = 1768855467325
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\search.html = 1768855467338
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\tag-search-index.js = 1768855467328
+C:\Users\David\Documents\github\jstruct\target\reports\apidocs\type-search-index.js = 1768855467326

@@ -11,8 +11,6 @@ import com.davidgable.jstruct.BaseModel;
  * This class extends {@link BaseModel} and provides
  * serialization/deserialization capabilities to JSON format.
  *
- * @param users a list of users to serialize and deserialize
- *
  * @author David Gable
  * @version 1.0
  */

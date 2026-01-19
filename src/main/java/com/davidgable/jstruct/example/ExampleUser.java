@@ -17,10 +17,6 @@ import jakarta.validation.constraints.Pattern;
  * name, birth year, favorite food, and a timestamp of when the object was
  * created.
  *
- * @param name         the user's name
- * @param birthyear    the user's birth year
- * @param favoriteFood the user's favorite food
- *
  * @author David Gable
  * @version 1.0
  */
